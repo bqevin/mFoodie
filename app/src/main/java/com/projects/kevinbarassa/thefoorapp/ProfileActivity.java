@@ -16,7 +16,7 @@ import java.util.HashMap;
  * Created by Kevin Barassa on 06-Dec-16.
  */
 
-public class MainActivity extends Activity {
+public class ProfileActivity extends Activity {
 
     private TextView txtName;
     private TextView txtEmail;
@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_profile);
 
         txtName = (TextView) findViewById(R.id.name);
         txtEmail = (TextView) findViewById(R.id.email);
@@ -74,7 +74,7 @@ public class MainActivity extends Activity {
         db.deleteUsers();
 
         // Launching the login activity
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
