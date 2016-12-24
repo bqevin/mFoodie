@@ -141,7 +141,7 @@ public class LoginActivity extends Activity {
 
                         // Launch main activity
                         Intent intent = new Intent(LoginActivity.this,
-                                ProfileActivity.class);
+                                FoodCatActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
@@ -149,11 +149,14 @@ public class LoginActivity extends Activity {
                         String errorMsg = jObj.getString("error_msg");
                         Toast.makeText(getApplicationContext(),
                                 errorMsg, Toast.LENGTH_LONG).show();
+
                     }
                 } catch (JSONException e) {
                     // JSON error
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getApplicationContext(),
+//                            "Please check your internet", Toast.LENGTH_LONG).show();
                 }
 
             }
