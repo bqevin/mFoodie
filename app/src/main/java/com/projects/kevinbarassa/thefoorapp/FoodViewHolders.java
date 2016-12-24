@@ -25,7 +25,7 @@ public class FoodViewHolders extends RecyclerView.ViewHolder implements View.OnC
 
     @Override
     public void onClick(View view) {
-        Toast.makeText(view.getContext(), "Clicked Country Position = " + getPosition(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(view.getContext(), "Clicked Food Position = " + getPosition(), Toast.LENGTH_SHORT).show();
     }
 }
 
