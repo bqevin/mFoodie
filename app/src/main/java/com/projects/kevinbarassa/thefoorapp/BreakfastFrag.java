@@ -57,10 +57,21 @@ public class BreakfastFrag extends Fragment {
     private List<FoodItemObject> getAllItemList(){
 
         List<FoodItemObject> allItems = new ArrayList<FoodItemObject>();
-        allItems.add(new FoodItemObject("Viazi Karai", R.drawable.food_icon));
-        allItems.add(new FoodItemObject("Samosa", R.drawable.food_icon));
-        allItems.add(new FoodItemObject("Mkate wa Sinia", R.drawable.food_icon));
-        allItems.add(new FoodItemObject("Mahamri", R.drawable.food_icon));
+        allItems.add(new FoodItemObject("Viazi Karai", R.drawable.breakfast));
+        allItems.add(new FoodItemObject("Samosa", R.drawable.breakfast3));
+        allItems.add(new FoodItemObject("Mkate wa Sinia", R.drawable.breakfast4));
+        allItems.add(new FoodItemObject("Mahamri", R.drawable.breakfast5));
+        allItems.add(new FoodItemObject("Viazi Karai", R.drawable.breakfast6));
+        allItems.add(new FoodItemObject("Samosa", R.drawable.breakfast7));
+        allItems.add(new FoodItemObject("Kaimati", R.drawable.kaimati));
+        allItems.add(new FoodItemObject("Mahamri", R.drawable.ss));
+        allItems.add(new FoodItemObject("Viazi Karai", R.drawable.ss1));
+        allItems.add(new FoodItemObject("Samosa", R.drawable.ss2));
+        allItems.add(new FoodItemObject("Mkate wa Sinia", R.drawable.ss3));
+        allItems.add(new FoodItemObject("Mahamri", R.drawable.ss4));
+        allItems.add(new FoodItemObject("Viazi Karai", R.drawable.ss5));
+        allItems.add(new FoodItemObject("Samosa", R.drawable.ss6));
+        allItems.add(new FoodItemObject("Kaimati", R.drawable.ss7));
         return allItems;
     }
 }
