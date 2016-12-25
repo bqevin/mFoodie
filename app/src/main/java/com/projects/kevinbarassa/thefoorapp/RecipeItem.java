@@ -33,6 +33,13 @@ public class RecipeItem {
     public void setDesc(String desc) {
         this.desc = desc;
     }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 }
 
 

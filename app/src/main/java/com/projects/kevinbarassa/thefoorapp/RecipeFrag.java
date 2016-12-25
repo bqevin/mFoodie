@@ -10,6 +10,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,7 +38,9 @@ import java.util.List;
 public class RecipeFrag extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
+    private ProgressDialog p;
     List<RecipeItem> recipeItems;
+    private static final String URL_DATA = "https://jsonplaceholder.typicode.com/posts";
 
 
     public RecipeFrag() {
@@ -47,7 +57,6 @@ public class RecipeFrag extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_recipe, container, false);
-
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
         //Ensures every item on recycler view has fixed size
@@ -62,17 +71,56 @@ public class RecipeFrag extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //Create data for the recipe items
         recipeItems = new ArrayList<>();
+        //Fetch the receipts
+        loadRecipes();
 
-        for (int i = 0; i <= 10; i++){
-            RecipeItem recipe = new RecipeItem(
-             "Recipe " + i+1, "Lot of description to the recipe title"
-            );
-            recipeItems.add(recipe);
-        }
+    }
+    private void loadRecipes() {
+        p = new ProgressDialog(getActivity());
+        p.setMessage("Checking all new Recipes");
+        p.show();
 
-        adapter = new RecipeAdapter(recipeItems,getContext());
-        //Set adapter object
-        recyclerView.setAdapter(adapter);
+        StringRequest  stringRequest = new StringRequest(Request.Method.GET,
+                URL_DATA,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        p.dismiss();
+                        //MUST be in the try catch clause
+                        try {
+                            //Get the array
+                            JSONArray array = new JSONArray();
+                            for (int i = 0; i <= array.length(); i++ ) {
+                                //fetch individual objects
+                                JSONObject o = array.getJSONObject(i);
+                                //fill the recipe objects
+                                RecipeItem item = new RecipeItem(
+                                        o.getString("title"),
+                                        o.getString("body")
+                                );
+                                recipeItems.add(item);
+                            }
+                            //Create adapter object
+                            adapter = new RecipeAdapter(recipeItems,getContext());
+                            //Set adapter
+                            recyclerView.setAdapter(adapter);
 
+                        } catch (JSONException e){
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //Volley Error
+                        Toast.makeText(getContext(), "Error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
+                        //Dismiss dialogue and print error
+                        p.dismiss();
+                    }
+                });
+        RequestQueue requestQue = Volley.newRequestQueue(getContext());
+        requestQue.add(stringRequest);
     }
 }
