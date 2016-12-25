@@ -11,6 +11,7 @@ public class RecipeItem {
 
     private String title;
     private String desc;
+    private String imageUrl;
 
     public RecipeItem(String title, String desc) {
         this.title = title;

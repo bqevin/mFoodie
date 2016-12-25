@@ -19,6 +19,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Kevin Barassa on 07-Dec-16.
@@ -28,6 +30,7 @@ import java.net.URL;
 public class RecipeFrag extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
+    List<RecipeItem> recipeItems;
 
 
     public RecipeFrag() {
@@ -46,9 +49,30 @@ public class RecipeFrag extends Fragment {
         View rootView =  inflater.inflate(R.layout.fragment_recipe, container, false);
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+
+        //Ensures every item on recycler view has fixed size
         recyclerView.setHasFixedSize(true);
+        //Layout manager set for current context
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return  rootView;
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        //Create data for the recipe items
+        recipeItems = new ArrayList<>();
+
+        for (int i = 0; i <= 10; i++){
+            RecipeItem recipe = new RecipeItem(
+             "Recipe " + i+1, "Lot of description to the recipe title"
+            );
+            recipeItems.add(recipe);
+        }
+
+        adapter = new RecipeAdapter(recipeItems,getContext());
+        //Set adapter object
+        recyclerView.setAdapter(adapter);
+
+    }
 }
