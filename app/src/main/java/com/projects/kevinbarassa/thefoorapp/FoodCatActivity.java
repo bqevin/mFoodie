@@ -59,9 +59,9 @@ public class FoodCatActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new BeverageFrag(), "Beverages");
-        adapter.addFragment(new BreakfastFrag(), "Breakfast");
+        adapter.addFragment(new RecipeFrag(), "Recipes");
         adapter.addFragment(new DishesFrag(), "Dishes");
+        adapter.addFragment(new RestaurantFrag(), "Restaurants");
         viewPager.setAdapter(adapter);
     }
 

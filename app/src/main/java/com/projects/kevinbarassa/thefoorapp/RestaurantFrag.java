@@ -11,9 +11,9 @@ import android.view.ViewGroup;
  */
 
 
-public class BeverageFrag extends Fragment {
+public class RestaurantFrag extends Fragment {
 
-    public BeverageFrag() {
+    public RestaurantFrag() {
         // Required empty public constructor
     }
 
@@ -26,7 +26,7 @@ public class BeverageFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_beverages, container, false);
+        return inflater.inflate(R.layout.fragment_restaurant, container, false);
     }
 
 }

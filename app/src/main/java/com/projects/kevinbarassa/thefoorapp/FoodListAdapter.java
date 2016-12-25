@@ -25,7 +25,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodViewHolders> {
     @Override
     public FoodViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.breakfast_item, null);
+        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.dish_item, null);
         FoodViewHolders rcv = new FoodViewHolders(layoutView);
         return rcv;
     }
