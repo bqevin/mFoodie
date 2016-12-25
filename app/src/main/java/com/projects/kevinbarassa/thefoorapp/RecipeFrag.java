@@ -40,7 +40,7 @@ public class RecipeFrag extends Fragment {
     private RecyclerView.Adapter adapter;
     private ProgressDialog p;
     List<RecipeItem> recipeItems;
-    private static final String URL_DATA = "https://jsonplaceholder.typicode.com/posts";
+    private static final String URL_DATA = "http://members.swahilipothub.co.ke/feeds/json.php";
 
 
     public RecipeFrag() {
@@ -88,15 +88,17 @@ public class RecipeFrag extends Fragment {
                         p.dismiss();
                         //MUST be in the try catch clause
                         try {
-                            //Get the array
-                            JSONArray array = new JSONArray();
-                            for (int i = 0; i <= array.length(); i++ ) {
+                            //Get the Object
+                            JSONObject jsonObj = new JSONObject(response);
+                            // Get Array
+                            JSONArray recipeArray = jsonObj.getJSONArray("feed");
+                            for (int i = 0; i < recipeArray.length(); i++ ) {
                                 //fetch individual objects
-                                JSONObject o = array.getJSONObject(i);
+                                JSONObject o = recipeArray.getJSONObject(i);
                                 //fill the recipe objects
                                 RecipeItem item = new RecipeItem(
-                                        o.getString("title"),
-                                        o.getString("body")
+                                        o.getString("name"),
+                                        o.getString("status")
                                 );
                                 recipeItems.add(item);
                             }
