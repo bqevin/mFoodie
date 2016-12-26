@@ -1,6 +1,8 @@
 package com.projects.kevinbarassa.thefoorapp;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -18,7 +20,7 @@ import com.projects.kevinbarassa.thefoorapp.helper.SessionManager;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Locale;
 
 
 /**
@@ -55,6 +57,16 @@ public class FoodCatActivity extends AppCompatActivity {
         if (!session.isLoggedIn()) {
             logoutUser();
         }
+
+        //Use custom font
+        //Define assets manager
+//        AssetManager am = this.getApplicationContext().getAssets();
+//        Typeface typeface = Typeface.createFromAsset(am,
+//                String.format(Locale.US, "fonts/%s", "HelveticaNeue.ttf"));
+//        //set the fontface
+//        setTypeface(typeface);
+
+
     }
 
     private void setupViewPager(ViewPager viewPager) {

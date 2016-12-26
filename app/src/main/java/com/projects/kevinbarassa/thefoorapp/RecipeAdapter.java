@@ -2,6 +2,7 @@ package com.projects.kevinbarassa.thefoorapp;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,6 +61,10 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
             textViewTitle = (TextView) itemView.findViewById(R.id.textViewHead);
             textViewDesc = (TextView) itemView.findViewById(R.id.textViewDesc);
+            //Use a better font
+            Typeface helvetica_font = Typeface.createFromAsset(getAssets(),  "fonts/HelveticaNeue.ttf");
+            textViewDesc.setTypeface(helvetica_font);
+            textViewTitle.setTypeface(helvetica_font);
 
         }
     }
