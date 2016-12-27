@@ -98,7 +98,8 @@ public class RecipeFrag extends Fragment {
                                 //fill the recipe objects
                                 RecipeItem item = new RecipeItem(
                                         o.getString("name"),
-                                        o.getString("status")
+                                        o.getString("status"),
+                                        o.getString("image")
                                 );
                                 recipeItems.add(item);
                             }

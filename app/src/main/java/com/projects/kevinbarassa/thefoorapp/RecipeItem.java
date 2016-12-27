@@ -13,10 +13,12 @@ public class RecipeItem {
     private String desc;
     private String imageUrl;
 
-    public RecipeItem(String title, String desc) {
+    public RecipeItem(String title, String desc, String imageUrl) {
         this.title = title;
         this.desc = desc;
+        this.imageUrl = imageUrl;
     }
+
 
     public String getTitle() {
         return title;

@@ -7,7 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 /**
@@ -41,6 +45,10 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         //inflate the created viewholders with actual data from model
         holder.textViewTitle.setText(recipeItem.getTitle());
         holder.textViewDesc.setText(recipeItem.getDesc());
+        //Load image with Piccasso
+        Picasso.with(context)
+                .load(recipeItem.getImageUrl())
+                .into(holder.imageView);
 
     }
 
@@ -54,11 +62,13 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     class ViewHolder extends RecyclerView.ViewHolder{
         public TextView textViewTitle;
         public TextView textViewDesc;
+        public ImageView imageView;
 
         //Constructor is responsible for inflations
         public ViewHolder(View itemView) {
             super(itemView);
 
+            imageView = (ImageView) itemView.findViewById(R.id.imageView);
             textViewTitle = (TextView) itemView.findViewById(R.id.textViewHead);
             textViewDesc = (TextView) itemView.findViewById(R.id.textViewDesc);
             //Use a better font
