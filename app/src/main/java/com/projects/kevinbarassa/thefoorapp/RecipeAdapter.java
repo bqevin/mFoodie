@@ -3,12 +3,15 @@ package com.projects.kevinbarassa.thefoorapp;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -41,7 +44,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         //Initiate the recipe items
-        RecipeItem recipeItem = items.get(position);
+        final RecipeItem recipeItem = items.get(position);
         //inflate the created viewholders with actual data from model
         holder.textViewTitle.setText(recipeItem.getTitle());
         holder.textViewDesc.setText(recipeItem.getDesc());
@@ -49,6 +52,14 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         Picasso.with(context)
                 .load(recipeItem.getImageUrl())
                 .into(holder.imageView);
+
+        //Add click listener to recipe items
+        holder.recipeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "This recipe will be availed to you in details later: " +recipeItem.getDesc(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -63,6 +74,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         public TextView textViewTitle;
         public TextView textViewDesc;
         public ImageView imageView;
+        public LinearLayout recipeLayout;
 
         //Constructor is responsible for inflations
         public ViewHolder(View itemView) {
@@ -71,6 +83,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
             imageView = (ImageView) itemView.findViewById(R.id.imageView);
             textViewTitle = (TextView) itemView.findViewById(R.id.textViewHead);
             textViewDesc = (TextView) itemView.findViewById(R.id.textViewDesc);
+            recipeLayout = (LinearLayout) itemView.findViewById(R.id.recipeLayout);
             //Use a better font
 //            Typeface helvetica_font = Typeface.createFromAsset(context.getAssets(),  "fonts/HelveticaNeue.ttf");
 //            textViewDesc.setTypeface(helvetica_font);
