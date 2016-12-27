@@ -5,12 +5,12 @@ package com.projects.kevinbarassa.thefoorapp;
  */
 
 
-public class FoodItemObject {
+public class DishesItem {
 
     private String name;
     private int photo;
 
-    public FoodItemObject(String name, int photo) {
+    public DishesItem(String name, int photo) {
         this.name = name;
         this.photo = photo;
     }

@@ -57,7 +57,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         holder.recipeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "This recipe will be availed to you in details later: " +recipeItem.getDesc(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, recipeItem.getDesc(), Toast.LENGTH_LONG).show();
             }
         });
 
