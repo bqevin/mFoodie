@@ -1,6 +1,7 @@
 package com.projects.kevinbarassa.thefoorapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.support.v7.widget.LinearLayoutCompat;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,7 +59,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         holder.recipeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, recipeItem.getDesc(), Toast.LENGTH_LONG).show();
+                Intent rd = new Intent(context, RecipeDetailsActivity.class);
+                context.startActivity(rd);
+//                Toast.makeText(context, recipeItem.getDesc(), Toast.LENGTH_LONG).show();
             }
         });
 
@@ -74,7 +78,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         public TextView textViewTitle;
         public TextView textViewDesc;
         public ImageView imageView;
-        public LinearLayout recipeLayout;
+        public RelativeLayout recipeLayout;
 
         //Constructor is responsible for inflations
         public ViewHolder(View itemView) {
@@ -83,7 +87,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
             imageView = (ImageView) itemView.findViewById(R.id.imageView);
             textViewTitle = (TextView) itemView.findViewById(R.id.textViewHead);
             textViewDesc = (TextView) itemView.findViewById(R.id.textViewDesc);
-            recipeLayout = (LinearLayout) itemView.findViewById(R.id.recipeLayout);
+            recipeLayout = (RelativeLayout) itemView.findViewById(R.id.recipeLayout);
             //Use a better font
 //            Typeface helvetica_font = Typeface.createFromAsset(context.getAssets(),  "fonts/HelveticaNeue.ttf");
 //            textViewDesc.setTypeface(helvetica_font);
