@@ -77,7 +77,7 @@ public class RecipeFrag extends Fragment {
     }
     private void loadRecipes() {
         p = new ProgressDialog(getActivity());
-        p.setMessage("Checking all new Recipes");
+        p.setMessage("Fetching recipes");
         p.show();
 
         StringRequest  stringRequest = new StringRequest(Request.Method.GET,
@@ -109,6 +109,7 @@ public class RecipeFrag extends Fragment {
                             recyclerView.setAdapter(adapter);
 
                         } catch (JSONException e){
+                            //Volley Error
                             e.printStackTrace();
                         }
 
@@ -117,8 +118,8 @@ public class RecipeFrag extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        //Volley Error
-                        Toast.makeText(getContext(), "Error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
+                        //Internet Error
+                        Toast.makeText(getContext(), "Ensure internet connectivity to load new recipes", Toast.LENGTH_SHORT).show();
                         //Dismiss dialogue and print error
                         p.dismiss();
                     }
