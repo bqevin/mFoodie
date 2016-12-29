@@ -36,7 +36,7 @@
             android:name=".FoodCatActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:theme="@style/MyMaterialTheme"
+            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".RecipeDetailsActivity"

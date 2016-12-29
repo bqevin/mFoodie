@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1CBB0B</color>
-    <color name="colorPrimaryDark">#085700</color>
-    <color name="colorAccent">#43C735</color>
-    <color name="bg_login">#0E9700</color>
-    <color name="bg_register">#2e3237</color>
-    <color name="bg_main">#143C10</color>
+    <color name="colorPrimary">#ec0d0d</color>
+    <color name="colorPrimaryDark">#c10b0b</color>
+    <color name="colorAccent">#ec0d0d</color>
+    <color name="bg_login">#888888</color>
+    <color name="bg_register">#888888</color>
+    <color name="bg_main">#888888</color>
     <color name="white">#ffffff</color>
-    <color name="input_login">#222222</color>
+    <color name="input_login">#c10b0b</color>
     <color name="input_login_hint">#999999</color>
     <color name="input_register">#888888</color>
-    <color name="input_register_bg">#3b4148</color>
-    <color name="input_register_hint">#5e6266</color>
-    <color name="btn_login">#0E9700</color>
+    <color name="input_register_hint">#888888</color>
+    <color name="btn_login">#ec0d0d</color>
     <color name="btn_login_bg">#eceef1</color>
-    <color name="lbl_name">#333333</color>
-    <color name="btn_logut_bg">#0E9700</color>
+    <color name="lbl_name">#c10b0b</color>
+    <color name="btn_logut_bg">#ec0d0d</color>
     <color name="windowBackground">#FFFFFF</color>
-    <color name="navigationBarColor">#000000</color>
+    <color name="navigationBarColor">#c10b0b</color>
 </resources>

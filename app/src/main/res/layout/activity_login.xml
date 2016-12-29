@@ -66,7 +66,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="@color/colorPrimary"
+            android:background="#14c902"
             android:textStyle="bold"
             android:text="@string/btn_login"
             android:textColor="@color/white" />
