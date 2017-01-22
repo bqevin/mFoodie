@@ -1,10 +1,7 @@
 package com.projects.kevinbarassa.thefoorapp;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
-import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -18,23 +15,18 @@ import android.widget.Toast;
 
 import com.android.volley.Cache;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.projects.kevinbarassa.thefoorapp.app.AppController;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,8 +40,10 @@ public class RecipeFrag extends Fragment {
     private RecyclerView.Adapter adapter;
     private ProgressDialog p;
     List<RecipeItem> recipeItems;
+
     //Swipe to refresh
     SwipeRefreshLayout refresherL;
+
     private static final String URL_DATA = "http://members.swahilipothub.co.ke/feeds/json.php";
 
 
@@ -67,6 +61,9 @@ public class RecipeFrag extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_recipe, container, false);
+
+
+
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         refresherL = (SwipeRefreshLayout) rootView.findViewById(R.id.swiperefresh);
 
@@ -74,6 +71,14 @@ public class RecipeFrag extends Fragment {
         recyclerView.setHasFixedSize(true);
         //Layout manager set for current context
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        //Recycler divider decoration
+        //recyclerView.addItemDecoration(new DividerItemDecoration(getActivity()));
+
+        //Custom divider
+        recyclerView.addItemDecoration(
+                new DividerItemDecoration(getActivity(), R.drawable.divider));
+
         return  rootView;
     }
 

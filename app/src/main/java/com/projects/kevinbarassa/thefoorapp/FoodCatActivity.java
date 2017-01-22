@@ -15,6 +15,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.projects.kevinbarassa.thefoorapp.helper.SQLiteHandler;
 import com.projects.kevinbarassa.thefoorapp.helper.SessionManager;
 
@@ -37,6 +39,11 @@ public class FoodCatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        //Fresco init
+        Fresco.initialize(this);
+
         setContentView(R.layout.activity_foodcat);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);

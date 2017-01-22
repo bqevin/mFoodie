@@ -2,19 +2,17 @@ package com.projects.kevinbarassa.thefoorapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Typeface;
-import android.support.v7.widget.LinearLayoutCompat;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -84,9 +82,13 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         public ViewHolder(View itemView) {
             super(itemView);
 
+            Uri uri = Uri.parse("https://raw.githubusercontent.com/facebook/fresco/gh-pages/static/fresco-logo.png");
+            SimpleDraweeView draweeView = (SimpleDraweeView) itemView.findViewById(R.id.avatar);
+            draweeView.setImageURI(uri);
+
             imageView = (ImageView) itemView.findViewById(R.id.imageView);
-            textViewTitle = (TextView) itemView.findViewById(R.id.textViewHead);
-            textViewDesc = (TextView) itemView.findViewById(R.id.textViewDesc);
+            textViewTitle = (TextView) itemView.findViewById(R.id.text_title);
+            textViewDesc = (TextView) itemView.findViewById(R.id.text_story);
             recipeLayout = (RelativeLayout) itemView.findViewById(R.id.recipeLayout);
             //Use a better font
             Typeface helvetica_font = Typeface.createFromAsset(context.getAssets(),  "fonts/HelveticaNeue.ttf");
