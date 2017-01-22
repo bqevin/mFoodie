@@ -91,9 +91,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
             textViewDesc = (TextView) itemView.findViewById(R.id.text_story);
             recipeLayout = (RelativeLayout) itemView.findViewById(R.id.recipeLayout);
             //Use a better font
-            Typeface helvetica_font = Typeface.createFromAsset(context.getAssets(),  "fonts/HelveticaNeue.ttf");
-            textViewDesc.setTypeface(helvetica_font);
-            textViewTitle.setTypeface(helvetica_font);
+//            Typeface helvetica_font = Typeface.createFromAsset(context.getAssets(),  "fonts/HelveticaNeue.ttf");
+//            textViewDesc.setTypeface(helvetica_font);
+//            textViewTitle.setTypeface(helvetica_font);
 
 
 
