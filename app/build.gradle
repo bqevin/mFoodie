@@ -35,5 +35,22 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.facebook.fresco:fresco:1.0.1'
+    //Core
+    compile 'com.github.gabrielemariotti.cards:cardslib-core:2.1.0'
+
+    //Optional for built-in cards
+    compile 'com.github.gabrielemariotti.cards:cardslib-cards:2.1.0'
+
+    //Optional for RecyclerView
+    compile 'com.github.gabrielemariotti.cards:cardslib-recyclerview:2.1.0'
+
+    //Optional for staggered grid view
+    compile 'com.github.gabrielemariotti.cards:cardslib-extra-staggeredgrid:2.1.0'
+
+    //Optional for drag and drop
+    compile 'com.github.gabrielemariotti.cards:cardslib-extra-dragdrop:2.1.0'
+
+    //Optional for twoway  (coming soon)
+    //compile 'com.github.gabrielemariotti.cards:cardslib-extra-twoway:2.1.0'
     testCompile 'junit:junit:4.12'
 }

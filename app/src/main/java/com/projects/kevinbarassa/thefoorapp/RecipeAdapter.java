@@ -82,14 +82,11 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         public ViewHolder(View itemView) {
             super(itemView);
 
-            Uri uri = Uri.parse("https://raw.githubusercontent.com/facebook/fresco/gh-pages/static/fresco-logo.png");
-            SimpleDraweeView draweeView = (SimpleDraweeView) itemView.findViewById(R.id.avatar);
-            draweeView.setImageURI(uri);
-
             imageView = (ImageView) itemView.findViewById(R.id.imageView);
             textViewTitle = (TextView) itemView.findViewById(R.id.text_title);
             textViewDesc = (TextView) itemView.findViewById(R.id.text_story);
             recipeLayout = (RelativeLayout) itemView.findViewById(R.id.recipeLayout);
+
             //Use a better font
 //            Typeface helvetica_font = Typeface.createFromAsset(context.getAssets(),  "fonts/HelveticaNeue.ttf");
 //            textViewDesc.setTypeface(helvetica_font);
